@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.zhichubao</groupId>
+	<groupId>com.github.acticfox</groupId>
 	<artifactId>super-app-pom</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -12,9 +12,9 @@
 	<url>http://maven.apache.org</url>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.3.RELEASE</version>
+		<groupId>com.git.acticfox</groupId>
+		<artifactId>super-pom</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
@@ -23,9 +23,10 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven-enforcer-plugin_version>1.1</maven-enforcer-plugin_version>
 		<extra-enforcer-rules_version>1.0-beta-4</extra-enforcer-rules_version>
-		<spring.version>5.2.8.RELEASE</spring.version>
-		<spring.cloud.version>Hoxton.SR10</spring.cloud.version>
-		<spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
+		<spring.version>5.3.9</spring.version>
+		<spring-boot-starter-parent.version>2.4.13</spring-boot-starter-parent.version>
+		<spring.cloud.version>2020.0.4</spring.cloud.version>
+		<spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
 		<slf4j.version>1.7.21</slf4j.version>
 		<logback.version>1.1.7</logback.version>
 	</properties>
@@ -51,11 +52,31 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		<dependency>
+			<artifactId>simpleclient_common</artifactId>
+			<groupId>io.prometheus</groupId>
+			<version>0.12.0</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
 			<!--springcloud version -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot-starter-parent.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -131,41 +152,45 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-redis</artifactId>
-				<version>2.3.2.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>redis.clients</groupId>
 				<artifactId>jedis</artifactId>
-				<version>3.3.0</version>
 			</dependency>
 
 			<!--db -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.1.10</version>
 			</dependency>
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.41</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.18.2</version>
 				<optional>true</optional>
 			</dependency>
 			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
-				<version>2.0.1.Final</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate.validator</groupId>
 				<artifactId>hibernate-validator</artifactId>
-				<version>6.1.5.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-actuator</artifactId>
+				<version>2.6.8</version>
+			</dependency>
+			<dependency>
+				<groupId>io.micrometer</groupId>
+				<artifactId>micrometer-registry-prometheus</artifactId>
+				<version>1.8.3</version>
 			</dependency>
 
 		</dependencies>
@@ -203,7 +228,7 @@
 							</excludes>
 						</bannedDependencies>
 						<evaluateBeanshell>
-							<condition>print("[INFO] [Alibaba Enforcer Rules] parent-pom
+							<condition>print("[INFO] [Github Enforcer Rules] parent-pom
 								");1==1</condition>
 						</evaluateBeanshell>
 						<banDuplicateClasses>
@@ -222,21 +247,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
-
-	<distributionManagement>
-		<repository>
-			<id>ZCB Releases</id>
-			<name>maven-releases</name>
-			<url>http://mvn.zhichubao.com/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>ZCB Snapshots</id>
-			<name>maven-snapshots</name>
-			<url>http://mvn.zhichubao.com/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 
 </project>
