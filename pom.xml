@@ -91,19 +91,19 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- zhichubao component -->
+			<!-- acticfox component -->
 			<dependency>
-				<groupId>com.zhichubao.shared</groupId>
+				<groupId>com.github.acticfox</groupId>
 				<artifactId>common-api</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.zhichubao.shared</groupId>
+				<groupId>com.github.acticfox</groupId>
 				<artifactId>redis-tools-spring-boot-starter</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.zhichubao.shared</groupId>
+				<groupId>com.github.acticfox</groupId>
 				<artifactId>base-mybatis</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
@@ -240,7 +240,7 @@
 								<ignoreClass>javax.xml.namespace.*</ignoreClass>
 								<ignoreClass>org.apache.axis2.*</ignoreClass>
 							</ignoreClasses>
-							<message>[ERROR] [zhichubao Enforcer Rules] find DuplicateClasses</message>
+							<message>[ERROR] [acticfox Enforcer Rules] find DuplicateClasses</message>
 						</banDuplicateClasses>
 					</rules>
 				</configuration>
