@@ -2,17 +2,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.github.acticfox</groupId>
 	<artifactId>super-app-pom</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>super-pom-ce</name>
 	<url>http://maven.apache.org</url>
 
 	<parent>
-		<groupId>com.github.acticfox</groupId>
+		<groupId>io.github.acticfox</groupId>
 		<artifactId>super-pom</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
@@ -93,19 +90,19 @@
 			</dependency>
 			<!-- acticfox component -->
 			<dependency>
-				<groupId>com.github.acticfox</groupId>
+				<groupId>io.github.acticfox</groupId>
 				<artifactId>common-api</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${acticfox-version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.acticfox</groupId>
+				<groupId>io.github.acticfox</groupId>
 				<artifactId>redis-tools-spring-boot-starter</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${acticfox-version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.acticfox</groupId>
+				<groupId>io.github.acticfox</groupId>
 				<artifactId>mybatis-starter</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${acticfox-version}</version>
 			</dependency>
 
 			<!--spring -->
